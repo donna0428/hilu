@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hilu</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffe6f0, #ffe0ec);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff4e8b;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 600px;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+
+
+        #fancy-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .time-box {
+            background: none;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .time {
+            font-size: 2.2em;
+            font-weight: 500;
+            color: #ff4e8b;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .label {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        iframe {
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+
+        .heart {
+            position: fixed;
+            font-size: 2rem;
+            color: #ff4e8b;
+            animation: floatUp 2s ease forwards;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translateY(0) scale(1); }
+            100% { opacity: 0; transform: translateY(-300px) scale(1.5); }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Happy Monthsary! 💖</h1>
+    <p>Every moment with you feels like magic. I can't wait to create more memories with you.  
+    You are my everything! 🌸🕊️</p>
+
+
+    <iframe style="border-radius:12px" 
+    src="https://open.spotify.com/embed/track/06IkOr83qPqa3yYvrIjgxp?utm_source=generator" width="30%" height="100" frameBorder="0" 
+            allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+
+    <h2 style="margin-top: 40px;">See you next Monthsary Lovey</h2>
+    <div id="fancy-countdown">
+        <div class="time-box">
+            <div id="days" class="time">00</div>
+            <div class="label">Days</div>
+        </div>
+        <div class="time-box">
+            <div id="hours" class="time">00</div>
+            <div class="label">Hours</div>
+        </div>
+        <div class="time-box">
+            <div id="minutes" class="time">00</div>
+            <div class="label">Minutes</div>
+        </div>
+        <div class="time-box">
+            <div id="seconds" class="time">00</div>
+            <div class="label">Seconds</div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // contdwn ni sya
+    var countDownDate = new Date("June 01, 2025 00:00:00").getTime();
+
+    var x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("fancy-countdown").innerHTML = "<h3 style='color:#ff4e8b;'>Happy Monthsary!!! 🎉💖</h3>";
+            explodeHearts();
+        }
+    }, 1000);
+
+    // Heart2 effects
+    function explodeHearts() {
+        for (let i = 0; i < 30; i++) {
+            let heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.top = Math.random() * 100 + "vh";
+            heart.innerText = "❤️";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+    }
+</script>
+
+</body>
+</html>
